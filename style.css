@@ -7,18 +7,21 @@ body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
-    background-color: rgb(192, 165, 131);
+    background-color: rgb(68, 57, 43);
 }
 
 .container{
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
     overflow: hidden;
 }
 
 .subhead{
-    font-size: 1.7rem;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #333;
     text-align: center;
+    margin-bottom: 40px;
     text-transform: uppercase;
 }
 
@@ -28,42 +31,63 @@ body{
 header{
     background-color: rgb(68, 57, 43);
     color: bisque;
-    min-height: 60px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-bottom: chocolate 5px solid;
-    padding: 2rem 0;
+    position: sticky;
+    padding: 20px 0;
+    top: 0;
+    z-index: 1000;
 }
 
-header #branding{
-    font-size: 2rem;
-}
-
-.branding:hover{
-    transform: scale(1.1);
-}
-
-header nav{
-    float: right;
-}
-header li {
+header .container{
     display: flex;
-    float: left;
-    padding: 0 20px 0 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header a{
+#branding a {
+    font-size: 2rem;
+    color: bisque;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#branding a:hover{
+    color: chocolate;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header li {
+    margin-left: 20px;
+}
+
+nav ul li a{
     text-decoration: none;
     font-size: 16px;
     color: bisque;
     text-transform: uppercase;
+    font-weight: 600;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
 }
 
-header a:hover{
-    border-bottom: bisque solid;
-}
-
-header .current{
+nav ul li a:hover{
     color: chocolate;
-    font-weight: bold;
+    background-color: bisque;
+    border-radius: 5px;
+}
+
+nav ul li .current{
+    color: chocolate;
+    background-color: bisque;
+    border-radius: 5px;
+    padding: 5px 10px;
 }
 
 
@@ -159,7 +183,23 @@ span{
     width: 200px;
 }
 
+#boxes p{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: bisque;
+}
+
+#boxes .box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
 /* -------------------------------------------- */
+
+#skills .subhead{
+    color: #222;
+}
 
 #skills {
     background-color: rgba(205, 151, 94, 0.821);
@@ -174,19 +214,93 @@ span{
 
 #skills p{
     text-align: center;
+    font-size: medium;
 }
 
 #skills img{
-    width: 20vw;
-    height: 30vh;
+    width: 10vw;
+    height: 20vh;
     border-radius: 10%;
 }
 
 /* ----------------------------------------- */
 /* education */
 
+#education .subhead h1 {
+    color: bisque;
+}
+
+#education .instansi {
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: rgba(205, 151, 94, 0.821) ;
+    border: 15px solid chocolate;
+}
+
+#education .instansi h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+#education .instansi h3 {
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+#education .instansi p {
+    font-size: 1em;
+    color: #3d3a37;
+    line-height: 1.6;
+}
+
 /* ----------------------------------------- */
 /* experience */
+
+#experience {
+    background-color: rgba(205, 151, 94, 0.821);
+    padding: 60px 0;
+}
+
+#experience .subhead h1 {
+    color: #222;
+}
+
+#experience .job {
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: rgb(68, 57, 43);;
+    border: 1px solid rgb(68, 57, 43);;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#experience .job h3 {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: bisque;
+    margin-bottom: 10px;
+}
+
+#experience .job p em {
+    font-size: 1em;
+    color: bisque;
+}
+
+#experience .job ul {
+    padding-left: 80px;
+}
+
+#experience .job ul li {
+    font-size: 1em;
+    color: rgb(153, 143, 131);
+    line-height: 1.6;
+    margin-bottom: 10px;
+    position: relative;
+}
 
 /* ----------------------------------------- */
 
@@ -214,6 +328,11 @@ span{
 
 #boxBot p{
     font-size: 1rem;
+}
+
+#boxBot a{
+    text-decoration: none;
+    color: bisque;
 }
 
 footer{
