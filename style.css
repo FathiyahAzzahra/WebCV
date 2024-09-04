@@ -9,7 +9,9 @@ body{
     margin: 0;
     background-color: rgb(68, 57, 43);
 }
-
+html{
+    scroll-behavior: smooth;
+}
 .container{
     width: 80%;
     margin: 0 auto;
@@ -83,16 +85,13 @@ nav ul li a:hover{
     border-radius: 5px;
 }
 
-nav ul li .current{
+
+nav ul li a:active {
     color: chocolate;
     background-color: bisque;
     border-radius: 5px;
     padding: 5px 10px;
 }
-
-
-
-
 
 /* ------------------------------------------ */
 
@@ -181,6 +180,7 @@ span{
 
 #boxes img{
     width: 200px;
+    position: relative;
 }
 
 #boxes p{
@@ -221,20 +221,39 @@ span{
     width: 10vw;
     height: 20vh;
     border-radius: 10%;
+    position: relative;
 }
 
 /* ----------------------------------------- */
 /* education */
+#education{
+    align-items: center;
+    padding: 45px;
+}
+
+#education .container {
+    max-width: 800px;
+}
 
 #education .subhead h1 {
     color: bisque;
 }
 
 #education .instansi {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 30px;
-    padding: 10px;
+    padding: 5px;
     background-color: rgba(205, 151, 94, 0.821) ;
     border: 15px solid chocolate;
+    align-items: center;
+    justify-content: center; 
+}
+
+#education .instansi:hover{
+    transform: scale(1.05); /* Memperbesar elemen sedikit */
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* Animasi transisi yang halus */
+    box-shadow: #222;
 }
 
 #education .instansi h2 {
@@ -246,7 +265,7 @@ span{
 
 #education .instansi h3 {
     font-size: 1.4em;
-    font-weight: 500;
+    font-weight: 200;
     color: #222;
     margin-bottom: 15px;
 }
@@ -260,53 +279,121 @@ span{
 /* ----------------------------------------- */
 /* experience */
 
+
 #experience {
     background-color: rgba(205, 151, 94, 0.821);
     padding: 60px 0;
 }
 
-#experience .subhead h1 {
-    color: #222;
+#experience .subhead{
+    font-weight: bold;
+    text-shadow: 2px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
-#experience .job {
-    margin-bottom: 50px;
-    padding: 20px;
-    background-color: rgb(68, 57, 43);;
-    border: 1px solid rgb(68, 57, 43);;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#experience .job h3 {
-    font-size: 1.6em;
-    font-weight: 600;
-    color: bisque;
-    margin-bottom: 10px;
-}
-
-#experience .job p em {
-    font-size: 1em;
-    color: bisque;
-}
-
-#experience .job ul {
-    padding-left: 80px;
-}
-
-#experience .job ul li {
-    font-size: 1em;
-    color: rgb(153, 143, 131);
-    line-height: 1.6;
-    margin-bottom: 10px;
+.timeline {
     position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline-container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-container.left {
+    left: 0;
+}
+
+.timeline-container.right {
+    left: 50%;
+}
+
+.timeline .content {
+    padding: 20px;
+    background-color: bisque;
+    position: relative;
+    border-radius: 6px;
+}
+
+/* Add arrows */
+.timeline-container::before {
+    content: " ";
+    position: absolute;
+    top: 15px;
+    width: 0;
+    height: 0;
+    z-index: 1;
+    border: medium solid #222;
+}
+
+.timeline-container.left::before {
+    right: -10px;
+    border-width: 10px 10px 10px 0;
+}
+
+.timeline-container.right::before {
+    left: -10px;
+    border-width: 10px 0 10px 10px;
+}
+
+/* Circle Indicators */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: bisque;
+    border: 4px solid #222;
+    right: -17px;
+}
+
+.timeline-container.right::after {
+    left: -16px;
+}
+
+/* Clear floats after the containers */
+.timeline:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .timeline-container.left, 
+    .timeline-container.right {
+        width: 100%;
+        left: 0;
+    }
+
+    .timeline-container.left::before {
+        right: 30px;
+        border-color: transparent #222 transparent transparent;
+    }
+
+    .timeline-container.right::before {
+        left: 30px;
+        border-color: transparent transparent transparent #E91E63;
+    }
+
+    .timeline-container.left::after, 
+    .timeline-container.right::after {
+        left: calc(50% - 12.5px);
+        right: auto;
+    }
 }
 
 /* ----------------------------------------- */
 
 #boxBot {
-    background-color: rgb(68, 57, 43);
-    color: bisque;
+    background-color: rgba(205, 151, 94, 0.821);
+    color: #222;
 }
 
 .box{
@@ -314,29 +401,89 @@ span{
     text-align: justify;
     width: 45%;
     padding: 10px;
-    display: flex; /* Mengaktifkan Flexbox */
-    flex-direction: column; /* Mengatur elemen anak dalam kolom */
-    justify-content: center; /* Memusatkan konten secara vertikal */
-    align-items: center; /* Memusatkan konten secara horizontal */
-
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
 }
 
 #boxBot img{
     width: 60px;
     padding: 10px;
+    position: relative;
 }
 
 #boxBot p{
     font-size: 1rem;
+    text-decoration: none;
+    color: #222;
+    font-weight: bolder;
 }
 
 #boxBot a{
     text-decoration: none;
-    color: bisque;
+    color: #222;
+    font-weight: bolder;
 }
 
+/* ---------------------------------------------------------- */
+/* contact */
+#contact {
+    background-color: bisque;
+    padding: 40px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#contact h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#contact .form-group {
+    margin-bottom: 15px;
+}
+
+#contact .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+#contact .form-group input,
+#contact .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid bisque;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#contact .form-group input:focus,
+#contact .form-group textarea:focus {
+    border-color: chocolate;
+    outline: none;
+}
+
+#contact button {
+    background-color: chocolate;
+    color: bisque;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#contact button:hover {
+    background-color: rgb(206, 143, 98);
+}
+/* -------------------------------------------------------- */
 footer{
-    padding: 20px ;  
+    padding: 0;  
     background-color: rgb(68, 57, 43);
     color: bisque;  
     text-align: center;
