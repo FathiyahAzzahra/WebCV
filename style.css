@@ -204,7 +204,7 @@ span{
 #skills {
     background-color: rgba(205, 151, 94, 0.821);
     color: black;
-    padding: 50px;
+    padding: 125px;
     display: flex;
 }
 
@@ -430,8 +430,8 @@ span{
 /* contact */
 #contact {
     background-color: bisque;
-    padding: 40px;
-    margin: 20px auto;
+    padding: 60px;
+    margin: 50px auto;
     border-radius: 8px;
     max-width: 600px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
